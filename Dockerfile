@@ -12,4 +12,4 @@ ENV NPM_CONFIG_LOGLEVEL warn
 RUN npm install
 
 ENV PORT 3000
-CMD node index.js
+CMD npm start
