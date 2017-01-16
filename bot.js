@@ -83,6 +83,8 @@ function receivedMessage(event) {
     // If we receive a text message, check to see if it matches a keyword
     // and send back the example. Otherwise, just echo the text we received.
     switch (messageText) {
+      'cloud66' :
+      	sendTextMessage(senderID, 'is awesome!');
       default:
         sendTextMessage(senderID, messageText);
     }
