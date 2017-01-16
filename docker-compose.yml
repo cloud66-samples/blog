@@ -7,4 +7,5 @@ services:
     volumes:
       - ${PWD}:/app
     environment:
-      - MESSENGER_PAGE_ACCESS_TOKEN=xxx
+      - MESSENGER_PAGE_ACCESS_TOKEN=__change_with_page_access_token__
+      - MESSENGER_VERIFICATION_CODE=__change_with_very_secret_code__

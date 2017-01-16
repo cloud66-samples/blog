@@ -8,6 +8,7 @@ const app = express()
 app.set('port', (process.env.PORT || 3000))
 
 // Generate a page access token for your page from the App Dashboard
+const VERIFICATION_CODE = process.env.MESSENGER_VERIFICATION_CODE ? process.env.MESSENGER_VERIFICATION_CODE : 'very_secret'
 const PAGE_ACCESS_TOKEN = process.env.MESSENGER_PAGE_ACCESS_TOKEN
 
 
@@ -24,7 +25,7 @@ app.get('/', function (req, res) {
 
 // for Facebook verification
 app.get('/webhook/', function (req, res) {
-    if (req.query['hub.verify_token'] === 'my_voice_is_my_password_verify_me') {
+    if (req.query['hub.verify_token'] === VERIFICATION_CODE) {
         res.send(req.query['hub.challenge'])
     }
     res.send('Error, wrong token')
