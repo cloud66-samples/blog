@@ -2,9 +2,12 @@
   "name": "facebook_cloud66_bot",
   "version": "1.0.0",
   "description": "facebook bot example using node and cloud 66",
-  "main": "index.js",
+  "main": "bot.js",
   "scripts": {
     "start": "node bot.js"
+  },
+  "engines": {
+    "node": ">= 7"
   },
   "author": "",
   "license": "ISC",
