@@ -46,9 +46,9 @@ ENV ROOT_URL http://www.example.com
 RUN meteor npm install
 
 # build the distribution and deploy in app dir
-#RUN meteor build --architecture=os.linux.x86_64 build
-#RUN tar -xf build/tmp.tar.gz --strip-components=1 -C $APP_HOME
+RUN meteor build --server-only --architecture=os.linux.x86_64 build
+RUN tar -xf build/tmp.tar.gz --strip-components=1 -C $APP_HOME
 
 # install NPM packages
-#WORKDIR $APP_HOME
-#RUN cd programs/server && npm install
+WORKDIR $APP_HOME
+RUN cd programs/server && npm install
