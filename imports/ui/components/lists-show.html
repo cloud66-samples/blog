@@ -1,0 +1,99 @@
+<template name="Lists_show">
+  <div class="page lists-show">
+    <nav class="js-title-nav">
+      {{#momentum plugin="fade"}}
+        {{#if editing}}
+          <form class="js-edit-form list-edit-form">
+            <input type="text" name="name" value="{{name}}">
+            <div class="nav-group right">
+              <a href="#" class="js-cancel nav-item">
+                <span
+                  class="icon-close js-cancel"
+                  title={{_ 'lists.show.cancel'}}>
+                </span>
+              </a>
+            </div>
+          </form>
+        {{else}}
+          <div class="nav-group">
+            <a href="#" class="js-menu nav-item">
+              <span
+                class="icon-list-unordered"
+                title={{_ 'lists.show.showMenu'}}>
+              </span>
+            </a>
+          </div>
+
+          <h1 class="js-edit-list title-page">
+            <span class="title-wrapper">{{list.name}}</span>
+            <span class="count-list">{{list.incompleteCount}}</span>
+          </h1>
+
+          <div class="nav-group right">
+            <div class="nav-item options-mobile">
+              <select class="list-edit">
+                <option disabled selected>
+                  {{_ 'lists.show.selectAction'}}
+                </option>
+                {{#if list.userId}}
+                  <option value="public">{{_ 'lists.show.makePublic'}}</option>
+                {{else}}
+                  <option value="private">{{_ 'lists.show.makePrivate'}}</option>
+                {{/if}}
+                <option value="delete">{{_ 'lists.show.delete'}}</option>
+              </select>
+              <span class="icon-cog"></span>
+            </div>
+            <div class="options-web">
+              <a class="js-toggle-list-privacy nav-item">
+                {{#if list.userId}}
+                  <span
+                    class="icon-lock"
+                    title={{_ 'lists.show.makeListPublic'}}>
+                  </span>
+                {{else}}
+                  <span
+                    class="icon-unlock"
+                    title={{_ 'lists.show.makeListPrivate'}}>
+                  </span>
+                {{/if}}
+              </a>
+
+              <a class="js-delete-list nav-item">
+                <span
+                  class="icon-trash"
+                  title={{_ 'lists.show.deleteList'}}>
+                </span>
+              </a>
+            </div>
+          </div>
+        {{/if}}
+      {{/momentum}}
+
+      <form class="js-todo-new todo-new input-symbol">
+        <input
+          type="text"
+          placeholder={{_ 'lists.show.typeToAdd'}}
+        />
+        <span class="icon-add js-todo-add"></span>
+      </form>
+    </nav>
+
+    <div class="content-scrollable list-items">
+      {{#if todosReady}}
+        {{#each todo in todos}}
+          {{> Todos_item (todoArgs todo)}}
+        {{else}}
+          <div class="wrapper-message">
+            <div class="title-message">{{_ 'lists.show.noTasks'}}</div>
+            <div class="subtitle-message">{{_ 'lists.show.addAbove'}}</div>
+          </div>
+        {{/each}}
+      {{else}}
+        <div class="wrapper-message">
+          <div class="title-message">{{_ 'lists.show.loading'}}</div>
+        </div>
+      {{/if}}
+    </div>
+  </div>
+</template>
