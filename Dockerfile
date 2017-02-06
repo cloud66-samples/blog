@@ -1,4 +1,4 @@
-FROM node:7.4.0
+FROM node:6.9.5
 
 # setup user home dir
 ENV USER node
