@@ -1,0 +1,16 @@
+version: '2'
+services:
+  meteor:
+    build: .
+    ports:
+      - "3000:3000"
+    volumes:
+      - ${PWD}:/app
+    links:
+      - mongo
+      - mongo:mongo.cloud66.local  
+    environment:
+      -  MONGO_URL=mongodb://mongo:27017/meteor
+      -  PORT=3000
+  mongo:
+    image: mongo:3.0.14 
