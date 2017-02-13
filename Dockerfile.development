@@ -3,7 +3,8 @@ FROM node:7.5.0
 # setup user home dir
 ENV USER node
 ENV HOME_DIR /home/$USER
-RUN mkdir /home/$USER & chown $USER:$USER /home/$USER
+RUN mkdir /home/$USER
+RUN chown $USER:$USER /home/$USER
 
 # setup application dir
 ENV APP_HOME /app
