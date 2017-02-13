@@ -1,4 +1,4 @@
-FROM node:6.9.5
+FROM node:7.5.0
 
 # setup user home dir
 ENV USER node
@@ -7,7 +7,8 @@ RUN mkdir /home/$USER & chown $USER:$USER /home/$USER
 
 # setup application dir
 ENV APP_HOME /app
-RUN mkdir $APP_HOME & chown $USER:$USER $APP_HOME
+RUN mkdir -vp $APP_HOME
+RUN chown $USER:$USER $APP_HOME
 
 # run next commands as user deamon
 USER $USER
