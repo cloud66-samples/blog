@@ -21,7 +21,7 @@ USER root
 
 #install required packages (magick)
 RUN apt-get update 
-RUN apt-get install apt-utils -y
+RUN apt-get install apt-utils netcat -y
 RUN apt-get install imagemagick libmagick++-dev  libmagick++-6.q16-dev -y
 ENV PATH /usr/lib/x86_64-linux-gnu/ImageMagick-6.8.9/bin-Q16:$PATH
 

@@ -10,11 +10,10 @@ services:
       - ${PWD}:/app
     links:
       - mongo
-      - mongo:mongo.cloud66.local  
     environment:
       -  MONGO_URL=mongodb://mongo:27017/meteor
   test:
-    command: npm test
+    command: ./start_test.sh
     build:
       context: .
       dockerfile: Dockerfile.development
@@ -24,7 +23,6 @@ services:
       - ${PWD}:/app
     links:
       - mongo
-      - mongo:mongo.cloud66.local  
     environment:
       -  MONGO_URL=mongodb://mongo:27017/meteor    
   mongo:

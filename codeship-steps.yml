@@ -1,5 +1,5 @@
 - name: meteor_test
   tag: webinar_codeship_meteor
   service: meteor
-  command: npm test
+  command: ./start_test.sh
 
