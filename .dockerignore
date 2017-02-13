@@ -1,2 +1,4 @@
+Dockerfile.development
+Dockerfile.test
 Dockerfile
 docker-compose.yml
