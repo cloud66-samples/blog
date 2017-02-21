@@ -1,0 +1,13 @@
+#smallest docker image alive (5mb!)
+FROM alpine:3.4
+
+#install curl on alpine
+RUN apk add --update curl
+RUN rm -rf /var/cache/apk/*
+
+ENV APP_HOME /app
+RUN mkdir $APP_HOME
+WORKDIR $APP_HOME
+
+#run redeployment hook
+CMD echo "POST to http://app.cloud66.com/hooks/v1/stacks/redeploy/$CLOUD66_SECRET"; curl -X POST -d "" http://app.cloud66.com/hooks/v1/stacks/redeploy/$CLOUD66_SECRET

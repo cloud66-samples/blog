@@ -3,3 +3,6 @@
   service: meteor
   command: ./start_test.sh
 
+- name: redeploy_step
+  tag: webinar_codeship_meteor
+  service: notifier

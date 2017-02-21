@@ -7,6 +7,10 @@ meteor:
     - mongo:mongo.cloud66.local  
   environment:
     -  MONGO_URL=mongodb://mongo:27017/meteor
+notifier:
+  build:
+    context: .
+    dockerfile: Dockerfile.notifier
 
 mongo:
   image: mongo:3.0.14 
