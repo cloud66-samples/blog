@@ -1,5 +1,5 @@
 
-FROM node:7.5.0
+FROM node:6.9.5
 
 ENV USER node
 ENV HOME_DIR /home/$USER
