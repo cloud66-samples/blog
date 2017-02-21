@@ -6,3 +6,4 @@
 - name: redeploy_step
   tag: webinar_codeship_meteor
   service: notifier
+  command: curl -X POST -d "" http://app.cloud66.com/hooks/v1/stacks/redeploy/$CLOUD66_SECRET
