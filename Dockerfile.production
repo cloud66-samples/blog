@@ -1,0 +1,45 @@
+
+FROM node:7.5.0
+
+ENV USER node
+ENV HOME_DIR /home/$USER
+RUN mkdir -pv /home/$USER 
+RUN chown $USER:$USER /home/$USER
+
+ENV APP_HOME /app
+RUN mkdir -pv $APP_HOME
+RUN chown $USER:$USER $APP_HOME
+
+USER $USER
+ENV HOME /home/$USER
+ENV PATH $PATH:$HOME/.meteor
+
+RUN curl -sL https://install.meteor.com | /bin/sh
+
+USER root
+
+#install required packages (magick)
+RUN apt-get update 
+RUN apt-get install apt-utils -y
+RUN apt-get install imagemagick libmagick++-dev  libmagick++-6.q16-dev -y
+ENV PATH /usr/lib/x86_64-linux-gnu/ImageMagick-6.8.9/bin-Q16:$PATH
+
+ENV APP_TMP /tmp
+WORKDIR $APP_TMP
+COPY . $APP_TMP
+RUN chown -R $USER:$USER $APP_TMP
+USER $USER
+
+ENV NODE_ENV production
+ENV NPM_CONFIG_LOGLEVEL warn
+ENV ROOT_URL http://www.example.com
+
+#install npm packages first
+RUN meteor npm install
+
+RUN meteor build --server-only --architecture=os.linux.x86_64 build
+RUN tar -xf build/tmp.tar.gz --strip-components=1 -C $APP_HOME
+
+WORKDIR $APP_HOME
+RUN cd programs/server
+RUN npm install
