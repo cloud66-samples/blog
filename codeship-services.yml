@@ -11,6 +11,7 @@ notifier:
   build:
     context: .
     dockerfile: Dockerfile.notifier
-
+    encrypted_args_file: notifier.env.encrypted
+    
 mongo:
   image: mongo:3.0.14 
