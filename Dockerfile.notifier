@@ -2,9 +2,12 @@
 FROM alpine:3.4
 
 #install curl on alpine
-RUN apk add --update curl
+RUN apk add --update curl bash
 RUN rm -rf /var/cache/apk/*
 
 ENV APP_HOME /app
 RUN mkdir $APP_HOME
 WORKDIR $APP_HOME
+
+COPY notifier.sh notifier.sh
+
