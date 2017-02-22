@@ -35,11 +35,10 @@ ENV NPM_CONFIG_LOGLEVEL warn
 ENV ROOT_URL http://www.example.com
 
 #install npm packages first
-RUN meteor npm install
+RUN npm install
 
 RUN meteor build --server-only --architecture=os.linux.x86_64 build
 RUN tar -xf build/tmp.tar.gz --strip-components=1 -C $APP_HOME
 
 WORKDIR $APP_HOME
-RUN cd programs/server
-RUN npm install
+RUN cd $APP_HOME/programs/server && npm install
