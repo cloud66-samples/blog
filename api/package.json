@@ -1,0 +1,13 @@
+{
+  "name": "api",
+  "version": "1.0.0",
+  "author": "Daniel van Gils",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.17.1",
+    "express": "^4.15.2",
+    "monk": "^4.0.0",
+    "morgan": "^1.8.1",
+    "natural": "^0.5.0"
+  }
+}

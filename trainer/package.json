@@ -1,0 +1,10 @@
+{
+  "name": "trainer",
+  "version": "1.0.0",
+  "author": "Daniel van Gils",
+  "license": "ISC",
+  "dependencies": {
+    "monk": "^4.0.0",
+    "natural": "^0.5.0"
+  }
+}
