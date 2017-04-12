@@ -3,6 +3,7 @@ Welcome.
 
 | Branch | Blog |
 | --- | --- |
+| [blog_yld_microservices](https://github.com/cloud66-samples/blog/tree/blog_yld_microservices) | xxx |
 | [blog_machinelearning_node](https://github.com/cloud66-samples/blog/tree/blog_machinelearning_node) | https://blog.cloud66.com/having-fun-with-machine-learning-node-and-cloud-66 |
 | [blog_facebook_chatbot_node](https://github.com/cloud66-samples/blog/tree/blog_facebook_chatbot_node) | https://blog.cloud66.com/build-deploy-and-manage-a-facebook-chatbot-using-node-js |
 | [webinar_digitalocean_meteor](https://github.com/cloud66-samples/blog/tree/webinar_digitalocean_meteor) | **Webinar** Deploying scalable Meteor and Node app with DigitalOcean and Cloud 66 |
