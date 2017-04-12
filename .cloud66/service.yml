@@ -1,0 +1,23 @@
+---
+services:
+  publisher:
+    git_url: git@github.com:kamerblauwlicht/training-analytics-webinar.git
+    git_branch: master
+    ports:
+    - container: 3000
+      http: 80
+      https: 443
+    build_root: packages
+    dockerfile_path: publisher/Dockerfile
+    env_vars:
+      PORT: 3000
+      RABBITMQ_URL: amqp://rabbitmq.cloud66.local
+  subscriber:
+    git_url: git@github.com:kamerblauwlicht/training-analytics-webinar.git
+    git_branch: master
+    build_root: packages
+    dockerfile_path: subscriber/Dockerfile
+    env_vars:
+      RABBITMQ_URL: amqp://rabbitmq.cloud66.local
+databases:
+- rabbitmq

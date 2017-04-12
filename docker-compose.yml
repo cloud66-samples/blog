@@ -1,0 +1,27 @@
+version: '2'
+services:
+  publisher:
+    build:
+      context: ./packages
+      dockerfile: publisher/Dockerfile
+    environment:
+      - RABBITMQ_URL=amqp://rabbitmq
+      - PORT=3000
+    ports:
+      - "8080:3000"  
+    links:
+      - rabbitmq
+ 
+  subscriber:
+    build:
+      context: ./packages
+      dockerfile: subscriber/Dockerfile
+    environment:
+      - RABBITMQ_URL=amqp://rabbitmq
+    links:
+      - rabbitmq
+ 
+  rabbitmq:
+    ports:
+      - "8081:15672"
+    image: rabbitmq:3-management-alpine

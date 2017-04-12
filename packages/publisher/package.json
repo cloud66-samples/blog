@@ -1,0 +1,30 @@
+{
+  "name": "publisher",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "start": "node .",
+    "test": "NODE_ENV=debug istanbul cover -- lab -l test/*.js test/**/*.js && semistandard"
+  },
+  "author": "Daniela Matos de Carvalho <alunassertiva@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "amqplib": "^0.5.1",
+    "async": "^2.1.5",
+    "body-parser": "^1.17.1",
+    "http": "0.0.0",
+    "uuid": "^3.0.1"
+  },
+  "devDependencies": {
+    "code": "^4.0.0",
+    "istanbul": "^0.4.5",
+    "lab": "^13.0.1",
+    "node-mocks-http": "^1.6.1",
+    "semistandard": "^10.0.0",
+    "sinon": "^2.1.0"
+  }
+}

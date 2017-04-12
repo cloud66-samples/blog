@@ -1,0 +1,23 @@
+{
+  "name": "subscriber",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "start": "node .",
+    "test": "NODE_ENV=debug istanbul cover -- lab -l test/*.js;"
+  },
+  "author": "Daniela Matos de Carvalho <alunassertiva@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "amqplib": "^0.5.1"
+  },
+  "devDependencies": {
+    "code": "^4.0.0",
+    "istanbul": "^0.4.5",
+    "lab": "^13.0.1"
+  }
+}
